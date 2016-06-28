@@ -1,6 +1,10 @@
 <div class="ui grid container">
-  <div class="sixteen wide column">
-    <h1 class="ui dividing header">Route Builder</h1>    
+  <div class="column">
+    <h1 class="ui dividing header">
+      {{#link-to 'index'}}Route Builder{{/link-to}}
+    </h1>
   </div>
+</div>
+<div class="ui sixteen column equal height grid container">
   {{outlet}}
 </div>

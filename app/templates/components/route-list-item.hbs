@@ -1,0 +1,19 @@
+<div class="title">
+  <i class="dropdown icon"></i>
+  {{route.created}}: 
+  {{route.originName}} — {{route.destinationName}}
+</div>
+<div class="content">
+  <ul class="ui mini list">
+    <li>ID: {{route.id}}</li>
+    <li>
+      From: {{route.originName}}
+      (lat: {{route.origin.coordinates.[0]}}, lon: {{route.origin.coordinates.[1]}})
+    </li>
+    <li>
+      To: {{route.destinationName}}
+      (lat: {{route.destination.coordinates.[0]}}, lon: {{route.destination.coordinates.[1]}})
+    </li>
+  </ul>
+</div>
+{{!-- {{yield}} --}}

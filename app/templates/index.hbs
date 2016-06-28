@@ -1,0 +1,12 @@
+<div class="four wide column">
+  {{routes-list title="Route list" routes=model}}
+</div>
+<div class="twelve wide column">
+  {{#mapbox-map mapId='ember-cli-mapbox.7c3914f2' as |map|}}
+    {{#each model as |route|}}
+      {{mapbox-geojson map=map json=route.origin popup-title=route.originName}}
+      {{mapbox-geojson map=map json=route.destination popup-title=route.destinationName}}
+      {{mapbox-geojson map=map json=route.polyline}}
+    {{/each}}
+  {{/mapbox-map}}
+</div>

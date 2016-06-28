@@ -1,0 +1,10 @@
+<h3 class="ui header">Route list</h3>
+{{#ui-accordion class="styled"}}
+  {{#each routes as |route|}}
+    {{route-list-item route=route}}
+  {{/each}}
+{{/ui-accordion}}
+<button class="fluid ui primary button">
+  Add new route
+</button>
+{{yield}}

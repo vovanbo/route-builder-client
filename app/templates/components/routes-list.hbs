@@ -1,10 +1,19 @@
 <h3 class="ui header">Route list</h3>
-{{#ui-accordion class="styled"}}
-  {{#each routes as |route|}}
-    {{route-list-item route=route}}
-  {{/each}}
-{{/ui-accordion}}
-<button class="fluid ui primary button">
+{{#if routes}}
+  {{#ui-accordion class="styled fluid" collapsible=false}}
+    {{#each routes as |route|}}
+      {{route-list-item route=route currentRouteID=currentRouteID viewRoute=(route-action "viewRoute")}}
+    {{/each}}
+  {{/ui-accordion}}
+{{else}}
+  <p>No routes yet.</p>
+{{/if}}
+<br>
+<button class="ui positive button">
+  <i class="icon plus"></i>
   Add new route
 </button>
-{{yield}}
+<button class="ui button">
+  <i class="icon refresh"></i>
+  Refresh list
+</button>

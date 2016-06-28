@@ -1,17 +1,17 @@
-<div class="title">
+<div class="title" {{action "viewRoute" route}}>
   <i class="dropdown icon"></i>
-  {{route.created}}: 
+  {{moment-format route.created}}<br>
   {{route.originName}} — {{route.destinationName}}
 </div>
 <div class="content">
-  <ul class="ui mini list">
-    <li>ID: {{route.id}}</li>
+  <ul class="ui tiny list">
+    <li><b>ID:</b> {{route.id}}</li>
     <li>
-      From: {{route.originName}}
+      <b>From:</b> {{route.originName}}
       (lat: {{route.origin.coordinates.[0]}}, lon: {{route.origin.coordinates.[1]}})
     </li>
     <li>
-      To: {{route.destinationName}}
+      <b>To:</b> {{route.destinationName}}
       (lat: {{route.destination.coordinates.[0]}}, lon: {{route.destination.coordinates.[1]}})
     </li>
   </ul>

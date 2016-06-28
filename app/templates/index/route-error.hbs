@@ -1,0 +1,9 @@
+<h3 class="ui header red">Error with route:</h3>
+<div class="ui list">
+  {{#each model.errors as |error|}}
+    <div class="item">
+      <i class="warning circle icon red"></i>
+      <div class="content">{{error.detail}}</div>
+    </div>
+  {{/each}}
+</div>

@@ -27,9 +27,11 @@ export default Ember.Route.extend({
     },
 
     refreshList() {
+      this.controller.set('isUpdating', true);
       this.controller.set('currentRoute', undefined);
       this.store.unloadAll('route');
       this.store.findAll('route', { reload: true }).then(() => {
+        this.controller.set('isUpdating', false);
         this.transitionTo('routes');
       });
     }

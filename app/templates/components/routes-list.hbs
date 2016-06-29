@@ -1,13 +1,19 @@
-{{#if routes}}
-  {{#ui-accordion class="styled fluid" collapsible=false}}
-    {{#each routes as |route|}}
-      {{route-list-item route=route
-        click=(route-action "showRoute" route)
-        removeRoute=(route-action "removeRoute")
-        currentRoute=currentRoute
-      }}
-    {{/each}}
-  {{/ui-accordion}}
+{{#if isUpdating}}
+  <h4 class="ui disabled aligned centered block header">
+    <i class="icon refresh">Updating now...</i>
+  </h4>
 {{else}}
-  <h4 class="ui disabled aligned centered block header">No created routes yet.</h4>
+  {{#if routes}}
+    {{#ui-accordion class="styled fluid" collapsible=false}}
+      {{#each routes as |route|}}
+        {{route-list-item route=route
+          click=(route-action "showRoute" route)
+          removeRoute=(route-action "removeRoute")
+          currentRoute=currentRoute
+        }}
+      {{/each}}
+    {{/ui-accordion}}
+  {{else}}
+    <h4 class="ui disabled aligned centered block header">No created routes yet.</h4>
+  {{/if}}
 {{/if}}

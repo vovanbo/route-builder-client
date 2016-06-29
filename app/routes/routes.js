@@ -1,23 +1,19 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  fetchRoutes() {
-    return this.store.findAll('route', { reload: true });
-  },
-
   model() {
-    return this.fetchRoutes();
+    return this.store.findAll('route', { reload: true });
   },
 
   actions: {
     didTransition: function() {
       this.controller.set('currentRoute', undefined);
-      Ember.Logger.info('index.js didTransition', this.controller.get('currentRoute'));
+      return true;
     },
 
     viewRoute(route) {
       this.controller.set('currentRoute', route);
-      this.transitionTo('index.route', route.id);
+      this.transitionTo('routes.show', route.id);
     },
 
     removeRoute(route) {
@@ -25,7 +21,7 @@ export default Ember.Route.extend({
       route.destroyRecord().then(() => {
         if (currentRoute == route) {
           this.controller.set('currentRoute', undefined);
-          this.transitionTo('index');
+          this.transitionTo('routes');
         }
       });
     },
@@ -33,8 +29,9 @@ export default Ember.Route.extend({
     refresh() {
       this.controller.set('currentRoute', undefined);
       this.store.unloadAll('route');
-      this.set('model', this.fetchRoutes());
-      this.transitionTo('index');
+      this.store.findAll('route', { reload: true }).then(() => {
+        this.transitionTo('routes');
+      });
     }
   }
 });

@@ -7,8 +7,7 @@ export default Ember.Route.extend({
 
   actions: {
     didTransition: function() {
-      this.controllerFor('index').set('currentRoute', this.currentModel);
-      Ember.Logger.info('route.js didTransition', this.controllerFor('index').get('currentRoute'));
+      this.controllerFor('routes').set('currentRoute', this.currentModel);
     }
   }
 });

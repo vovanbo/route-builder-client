@@ -15,10 +15,12 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* change into the new directory
-* `npm install`
-* `bower install`
+```shell
+$ git clone https://github.com/vovanbo/route-builder-client.git`
+$ cd route-builder-client
+$ npm install
+$ bower install
+```
 
 ## Running / Development
 

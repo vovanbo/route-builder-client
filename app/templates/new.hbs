@@ -1,0 +1,15 @@
+<div class="six wide column">
+  <h3 class="ui header">Create new route</h3>
+  {{#link-to 'routes' class="ui button"}}
+    <i class="left arrow icon"></i>
+    Back to route list
+  {{/link-to}}
+
+</div>
+<div class="nine wide column map-container">
+  {{#if routePreview}}
+    {{route-view route=routePreview}}
+  {{else}}
+    <h3 class="ui grey aligned centered header">Click to "Preview" button to preview route.</h3>
+  {{/if}}
+</div>

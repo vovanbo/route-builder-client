@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('routes', { path: '/' }, function () {
     this.route('show', { path: '/show/:route_id' });
   })
+  this.route('new');
 });
 
 export default Router;

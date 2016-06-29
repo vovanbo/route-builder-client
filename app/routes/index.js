@@ -21,7 +21,10 @@ export default Ember.Route.extend({
     },
 
     removeRoute(route) {
-      route.destroyRecord();
+      this.controller.set('currentRoute', undefined);
+      route.destroyRecord().then(() => {
+        this.transitionTo('index');
+      });
     },
 
     refresh() {

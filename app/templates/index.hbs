@@ -1,5 +1,16 @@
 <div class="six wide column">
-  {{routes-list title="Route list" routes=model currentRouteID=currentRouteID}}
+  <h3 class="ui header">Route list</h3>
+  <div class="ui two top attached buttons">
+    <button class="ui positive button">
+      <i class="icon plus"></i>
+      Add new route
+    </button>
+    <button class="ui button" {{action 'refresh'}}>
+      <i class="icon refresh"></i>
+      Update list
+    </button>
+  </div>
+  {{routes-list title="Route list" routes=model currentRoute=currentRoute}}
 </div>
 <div class="nine wide column map-container">
   {{outlet}}

@@ -1,9 +1,9 @@
-<div class="title" {{action "viewRoute" route}}>
+<div class="{{if isCurrentRoute "active"}} title">
   <i class="dropdown icon"></i>
   {{moment-format route.created}}<br>
   {{route.originName}} — {{route.destinationName}}
 </div>
-<div class="content">
+<div class="{{if isCurrentRoute "active"}} content">
   <ul class="ui tiny list">
     <li><b>ID:</b> {{route.id}}</li>
     <li>
@@ -15,5 +15,9 @@
       (lat: {{route.destination.coordinates.[0]}}, lon: {{route.destination.coordinates.[1]}})
     </li>
   </ul>
+  <button class="ui red tiny button" {{action "removeRoute" route}}>
+    <i class="icon remove"></i>
+    Delete
+  </button>
 </div>
 {{!-- {{yield}} --}}

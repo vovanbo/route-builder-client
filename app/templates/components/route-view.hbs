@@ -1,10 +1,2 @@
-{{#if route}}
-  <h3 class="ui aligned centered grey header">Route preview</h3>
-  {{#mapbox-map mapId="vovanbo.0h6d865f" onload="setupBounds" as |map|}}
-    {{mapbox-geojson map=map json=route.origin popup-title=route.originName}}
-    {{mapbox-geojson map=map json=route.destination popup-title=route.destinationName}}
-    {{mapbox-geojson map=map json=route.polyline}}
-  {{/mapbox-map}}
-{{else}}
-  <h3 class="ui header grey aligned centered">Select route from list to view</h3>
-{{/if}}
+<h3 class="ui aligned centered grey header">Route preview</h3>
+{{mapbox-map mapId="vovanbo.0h6d865f" onload="setupRoute"}}

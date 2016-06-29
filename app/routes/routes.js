@@ -11,7 +11,7 @@ export default Ember.Route.extend({
       return true;
     },
 
-    viewRoute(route) {
+    showRoute(route) {
       this.controller.set('currentRoute', route);
       this.transitionTo('routes.show', route.id);
     },
@@ -26,7 +26,7 @@ export default Ember.Route.extend({
       });
     },
 
-    refresh() {
+    refreshList() {
       this.controller.set('currentRoute', undefined);
       this.store.unloadAll('route');
       this.store.findAll('route', { reload: true }).then(() => {

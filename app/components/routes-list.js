@@ -2,8 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   actions: {
-    viewRoute(route) {
-      this.sendAction('viewRoute', route);
+    showRoute(route) {
+      this.sendAction('showRoute', route);
     },
 
     removeRoute(route) {

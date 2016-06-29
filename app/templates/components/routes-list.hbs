@@ -2,7 +2,7 @@
   {{#ui-accordion class="styled fluid" collapsible=false}}
     {{#each routes as |route|}}
       {{route-list-item route=route
-        click=(route-action "viewRoute" route)
+        click=(route-action "showRoute" route)
         removeRoute=(route-action "removeRoute")
         currentRoute=currentRoute
       }}

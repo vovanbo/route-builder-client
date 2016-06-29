@@ -2,16 +2,28 @@
   <h3 class="ui header">
     Create new route
 </h3>
-  <form class="ui form" {{action "createRoute" on="submit"}}>
+  <form class="ui form {{if isLoading "loading"}} {{if formErrors "error"}}" {{action "createRoute" on="submit"}} {{action "resetForm" on="keyUp"}}>
     <div class="field">
       <label>From</label>
-      {{input type="text" value=origin placeholder="e.g. Санкт-Петербург, Невский проспект 1"}}
+      {{input type="text" value=origin placeholder="e.g. Санкт-Петербург, Невский проспект 1" }}
     </div>
     <div class="field">
       <label>To</label>
       {{input type="text" value=destination placeholder="e.g. Москва, Красная площадь"}}
     </div>
-    <button class="ui primary button" type="submit">Preview</button>
+    {{input type="hidden" value=isReadyToCreate}}
+
+    {{#each formErrors as |error|}}
+      <div class="ui error message">
+        <p>{{error}}</p>
+      </div>
+    {{/each}}
+
+    {{#if isReadyToCreate}}
+      <button class="ui positive button" type="submit">Create route</button>
+    {{else}}
+      <button class="ui primary button" type="submit">Preview</button>
+    {{/if}}
   </form>
   <br>
   {{#link-to 'routes' class="ui tiny basic button"}}

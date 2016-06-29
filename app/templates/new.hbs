@@ -1,10 +1,23 @@
 <div class="six wide column">
-  <h3 class="ui header">Create new route</h3>
-  {{#link-to 'routes' class="ui button"}}
+  <h3 class="ui header">
+    Create new route
+</h3>
+  <form class="ui form" {{action "createRoute" on="submit"}}>
+    <div class="field">
+      <label>From</label>
+      {{input type="text" value=origin placeholder="e.g. Санкт-Петербург, Невский проспект 1"}}
+    </div>
+    <div class="field">
+      <label>To</label>
+      {{input type="text" value=destination placeholder="e.g. Москва, Красная площадь"}}
+    </div>
+    <button class="ui primary button" type="submit">Preview</button>
+  </form>
+  <br>
+  {{#link-to 'routes' class="ui tiny basic button"}}
     <i class="left arrow icon"></i>
     Back to route list
   {{/link-to}}
-
 </div>
 <div class="nine wide column map-container">
   {{#if routePreview}}

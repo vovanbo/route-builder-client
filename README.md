@@ -16,7 +16,7 @@ You will need the following things properly installed on your computer.
 ## Installation
 
 ```shell
-$ git clone https://github.com/vovanbo/route-builder-client.git`
+$ git clone https://github.com/vovanbo/route-builder-client.git
 $ cd route-builder-client
 $ npm install
 $ bower install

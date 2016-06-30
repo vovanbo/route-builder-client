@@ -16,6 +16,7 @@ export default Ember.Controller.extend({
       let destination = this.get('destination');
       let isReadyToCreate = this.get('isReadyToCreate');
       if (isReadyToCreate) {
+        this.set('isLoading', true);
         let routePreview = this.get('routePreview');
         let routeProperties = routePreview.getProperties(
           'origin', 'originName', 'destination', 'destinationName',
@@ -25,6 +26,7 @@ export default Ember.Controller.extend({
         newRoute.save().then((result) => {
           newRoute.set('id', result.get('id'));
           newRoute.set('created', result.get('created'));
+          this.set('isLoading', false);
           this.transitionToRoute('routes.show', newRoute.get('id'));
         });
       }

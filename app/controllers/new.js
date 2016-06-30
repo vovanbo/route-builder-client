@@ -41,6 +41,16 @@ export default Ember.Controller.extend({
             if (direction) {
               let route = direction.get('route');
               let leg = route.legs[0];
+              let fullPolyline = {
+                'type': 'LineString',
+                'coordinates': []
+              }
+              leg.steps.forEach(function(step) {
+                let geoJsonPoints = polyline.toGeoJSON(step.polyline.points);
+                geoJsonPoints.coordinates.forEach(function(point) {
+                  fullPolyline.coordinates.push(point);
+                })
+              });
               let routePreview = Ember.Object.create({
                 "origin": {
                   "type": "Point",
@@ -53,7 +63,7 @@ export default Ember.Controller.extend({
                 },
                 "destinationName": leg.end_address,
                 "bounds": route.bounds,
-                "polyline": polyline.toGeoJSON(route.overview_polyline.points)
+                "polyline": fullPolyline
               });
               this.set('isReadyToCreate', true);
               this.set('routePreview', routePreview);

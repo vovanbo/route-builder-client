@@ -69,11 +69,14 @@ export default Ember.Controller.extend({
               this.set('routePreview', routePreview);
             }
             else {
-              // this.set('isFormHasErrors', true);
               this.set('formErrors', ['Route cannot be builded for passed points.'])
             }
           }).catch((error) => {
-            Ember.Logger.info(error);
+            this.set('isLoading', false);
+            if (error) {
+              this.set('formErrors', ['Server error']);
+              Ember.Logger.info(error);
+            }
           });
       }
     }
